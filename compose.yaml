@@ -1,0 +1,59 @@
+services:
+
+  db:
+    image: mariadb
+    restart: always
+    networks:
+      - back-tier 
+    volumes:
+      - ./db:/var/lib/mysql
+    environment:
+      MARIADB_ROOT_PASSWORD: <YOUR _PASSWORD_HERE>
+      MARIADB_DATABASE: drupal
+      MARIADB_USER: drupal
+      MARIADB_PASSWORD: drupal
+
+  phpmyadmin:
+    image: phpmyadmin
+    networks:
+      - back-tier
+    restart: always
+    ports:
+      - "8080:80"
+    depends_on:
+      - db
+#   volumes:
+#      - ./config_phpyadmin:/etc/apache2
+
+  drupal:
+    image: mihaimiculescu/drupal_commerce_kickstart_3
+    networks:
+      - front-tier
+      - back-tier
+    restart: always
+    ports:
+      - "80:80"
+    depends_on:
+      - db
+    volumes:
+      - ./modules:/var/www/html/modules
+      - ./profiles:/var/www/html/profiles
+      - ./themes:/var/www/html/themes
+      - ./sites:/var/www/html/sites
+#      - ./config_apache:/etc/apache2
+    restart: always
+
+volumes:
+  db:
+  modules:
+  profiles:
+  themes:
+  sites:
+#  config_phpyadmin:
+#  config_apache:
+
+networks:
+  front-tier: {}
+  back-tier: {}
+
+
