@@ -1,6 +1,6 @@
 ### Run Drupal Commerce Kickstart 3 in a Docker container ###
 
-1. create a project directory and copy the compose.json and (optionally) Dockerfile into it
+1. create a project directory and copy the compose.yaml, install.yaml and (optionally) Dockerfile into it
 ```
 mkdir testdrupal
 cd testdrupal
@@ -31,4 +31,8 @@ sudo chown -R www-data:www-data modules profiles themes sites
 ```
 sudo docker compose stop
 sudo docker compose up -d
+sudo docker exec -ti testdrupal-drupal-1 bash
+mkdir private
+chown -R www-data:www-data private
+exit
 ```
