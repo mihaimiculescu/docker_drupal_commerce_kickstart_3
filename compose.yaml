@@ -40,6 +40,7 @@ services:
       - ./profiles:/var/www/html/profiles
       - ./themes:/var/www/html/themes
       - ./sites:/var/www/html/sites
+      - ./private:/opt/drupal/private
 #      - ./config_apache:/etc/apache2
     restart: always
 
@@ -49,6 +50,7 @@ volumes:
   profiles:
   themes:
   sites:
+  private:
 #  config_phpyadmin:
 #  config_apache:
 
