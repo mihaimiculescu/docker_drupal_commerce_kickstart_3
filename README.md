@@ -25,7 +25,8 @@ sudo docker cp testdrupal-drupal-1:/var/www/html/modules ./modules
 sudo docker cp testdrupal-drupal-1:/var/www/html/profiles ./profiles
 sudo docker cp testdrupal-drupal-1:/var/www/html/themes ./themes
 sudo docker cp testdrupal-drupal-1:/var/www/html/sites ./sites
-sudo chown -R www-data:www-data modules profiles themes sites
+sudo docker cp testdrupal-drupal-1:/opt/drupal/private ./private
+sudo chown -R www-data:www-data modules profiles themes sites private
 ```
 6. Restart the combination with complete config
 ```
