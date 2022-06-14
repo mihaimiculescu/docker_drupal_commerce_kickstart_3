@@ -4,7 +4,7 @@
 ```
 mkdir testdrupal
 cd testdrupal
-<copy the compose.json and Dockerfile here>
+<copy the compose.yaml, install.yaml and Dockerfile here>
 ```
 2. create image from Dockerfile
 ```
