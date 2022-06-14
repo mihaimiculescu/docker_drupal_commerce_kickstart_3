@@ -32,8 +32,4 @@ sudo chown -R www-data:www-data modules profiles themes sites private
 ```
 sudo docker compose stop
 sudo docker compose up -d
-sudo docker exec -ti testdrupal-drupal-1 bash
-mkdir private
-chown -R www-data:www-data private
-exit
 ```
