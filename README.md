@@ -10,11 +10,11 @@ cd testdrupal
 ```
 sudo docker build -t mihaimiculescu/drupal_commerce_kickstart_3 .
 ```
-If and onky if you use an arm64 machine, you can pull the image from the hub
+*(If and onky if you use an arm64 machine, you can pull the image from the hub
 ```
 sudo docker pull mihaimiculescu/drupal_commerce_kickstart_3
 ```
-otherwise you need to build the image. 
+otherwise you need to build the image.)* 
 
 3. start up the containers
 ```
