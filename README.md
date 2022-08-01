@@ -21,8 +21,10 @@ sudo docker pull mihaimiculescu/drupal_commerce_kickstart_3
 sudo docker compose -f install.yaml up -d
 ```
 3a. Run `sudo docker ps` and note the name of the MariaDb container
+
 4. navigate to localhost and run the installer `install.php`
 Check the MariaDb option. When asked about the database user and password, enter `drupal` for both. Also, under `Advanced`, replace the default `localhost` with the name of the container noted down at 3a.
+
 5. Back to the terminal, copy container folders of interest on local filesystem
 ```
 sudo docker cp testdrupal-drupal-1:/var/www/html/modules ./modules
