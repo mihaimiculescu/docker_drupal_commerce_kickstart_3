@@ -8,7 +8,7 @@ services:
     volumes:
       - ./db:/var/lib/mysql
     environment:
-      MARIADB_ROOT_PASSWORD: <YOUR_PASSWORD_HERE>
+      MARIADB_ROOT_PASSWORD: mysmartrootpassword
       MARIADB_DATABASE: drupal
       MARIADB_USER: drupal
       MARIADB_PASSWORD: drupal
@@ -22,8 +22,6 @@ services:
       - "8080:80"
     depends_on:
       - db
-#   volumes:
-#      - ./config_phpyadmin:
 
   drupal:
     image: mihaimiculescu/drupal_commerce_kickstart_3
@@ -35,21 +33,10 @@ services:
       - "80:80"
     depends_on:
       - db
-#    volumes:
-#      - /var/www/html/modules
-#      - /var/www/html/profiles
-#      - /var/www/html/themes
-      # this takes advantage of the feature in Docker that a new anonymous
-      # volume (which is what we're creating here) will be initialized with the
-      # existing content of the image at the same location
-#      - /var/www/html/sites
-#      - ./config_apache:
     restart: always
 
 volumes:
   db:
-#  config_phpyadmin:
-#  config_apache:
 
 networks:
   front-tier: {}
