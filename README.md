@@ -39,3 +39,19 @@ sudo chown -R www-data:www-data modules profiles themes sites private
 sudo docker compose stop
 sudo docker compose up -d
 ```
+#### Usage ####
+
+- To run drush or composer commands:
+
+First, run `sudo docker ps` and get the name of the Drupal container. 
+Then, to get inside the container run `sudo docker exec - ti <the name of the Drupal container> bash'
+Once inside the container, you don't need to prefix everything with `sudo` anymore.
+
+- Every change you make on the files on the local filesystem is instantly propagated in the corresponding file inside the conainer.
+
+- To start over again, simply run
+``` sudo docker compose down ```. This will erase all your containers. 
+Then, clean up your folder, leaving only the compose.yaml, install.yaml and Dockerfile files. 
+Then, go to step 3.
+
+- Once you're done and ready for production, simply convert your Drupal container to an image and move it to the production server.
