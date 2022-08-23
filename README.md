@@ -44,7 +44,7 @@ sudo docker compose up -d
 - To run drush or composer commands:
 
 First, run `sudo docker ps` and get the name of the Drupal container. 
-Then, to get inside the container run `sudo docker exec - ti <the name of the Drupal container> bash'
+Then, to get inside the container run `sudo docker exec - ti <the name of the Drupal container> bash`
 Once inside the container, you don't need to prefix everything with `sudo` anymore.
 
 - Every change you make on the files on the local filesystem is instantly propagated in the corresponding file inside the conainer.
