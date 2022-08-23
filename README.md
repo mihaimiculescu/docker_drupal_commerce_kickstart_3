@@ -47,7 +47,7 @@ First, run `sudo docker ps` and get the name of the Drupal container.
 Then, to get inside the container run `sudo docker exec - ti <the name of the Drupal container> bash`
 Once inside the container, you don't need to prefix everything with `sudo` anymore.
 
-- Every change you make on the files on the local filesystem is instantly propagated in the corresponding file inside the conainer.
+- Every change you make in the files on the local filesystem is instantly propagated in the corresponding file(s) inside the container.
 
 - To start over again, simply run
 ``` sudo docker compose down ```. This will erase all your containers. 
