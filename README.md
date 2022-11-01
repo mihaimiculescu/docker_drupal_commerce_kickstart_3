@@ -48,6 +48,6 @@ Once inside the container, you can run drush and composer commands. You don't ne
 Then, clean up your folder, leaving only the compose.yaml, install.yaml and Dockerfile files. 
 Then, go to step 3.
 
-- ```phpmyadmin``` is available at ```localhost:8080```
+- ```phpmyadmin``` is available at ```localhost:8080```. To log in, use ```drupal``` for both username and password.
 
 - Once you're done and ready for production, simply convert your Drupal container to an image and move it to the production server.
