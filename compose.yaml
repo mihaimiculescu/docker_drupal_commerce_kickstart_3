@@ -4,7 +4,7 @@ services:
     image: mariadb
     restart: always
     networks:
-      - back-tier 
+      - back_demo 
     volumes:
       - ./db:/var/lib/mysql
     environment:
@@ -16,7 +16,7 @@ services:
   phpmyadmin:
     image: phpmyadmin
     networks:
-      - back-tier
+      - back_demo
     restart: always
     ports:
       - "8080:80"
@@ -26,8 +26,8 @@ services:
   drupal:
     image: mihaimiculescu/drupal_commerce_kickstart_3
     networks:
-      - front-tier
-      - back-tier
+      - front_demo
+      - back_demo
     restart: always
     ports:
       - "80:80"
@@ -50,7 +50,6 @@ volumes:
   private:
 
 networks:
-  front-tier: {}
-  back-tier: {}
-
-
+  front_demo: {}
+  back_demo: {}
+  
