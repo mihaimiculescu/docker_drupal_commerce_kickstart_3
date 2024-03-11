@@ -22,8 +22,6 @@ services:
       - "8080:80"
     depends_on:
       - db
-#   volumes:
-#      - ./config_phpyadmin:/etc/apache2
 
   drupal:
     image: mihaimiculescu/drupal_commerce_kickstart_3
@@ -36,12 +34,11 @@ services:
     depends_on:
       - db
     volumes:
-      - ./modules:/var/www/html/modules
-      - ./profiles:/var/www/html/profiles
-      - ./themes:/var/www/html/themes
-      - ./sites:/var/www/html/sites
+      - ./modules:/opt/drupal/web/modules
+      - ./profiles:/opt/drupal/web/profiles
+      - ./themes:/opt/drupal/web/themes
+      - ./sites:/opt/drupal/web/sites
       - ./private:/opt/drupal/private
-#      - ./config_apache:/etc/apache2
     restart: always
 
 volumes:
@@ -51,8 +48,6 @@ volumes:
   themes:
   sites:
   private:
-#  config_phpyadmin:
-#  config_apache:
 
 networks:
   front-tier: {}
