@@ -19,11 +19,11 @@ Check the MariaDb option. When asked about the database name, user and password,
 
 5. Back to the terminal, copy container folders of interest on local filesystem
 ```
-sudo docker cp testdrupal-drupal-1:/var/www/html/modules ./modules
-sudo docker cp testdrupal-drupal-1:/var/www/html/profiles ./profiles
-sudo docker cp testdrupal-drupal-1:/var/www/html/themes ./themes
-sudo docker cp testdrupal-drupal-1:/var/www/html/sites ./sites
-sudo docker cp testdrupal-drupal-1:/opt/drupal/private ./private
+sudo docker cp kickstartdemo:/opt/drupal/web/modules ./modules
+sudo docker cp kickstartdemo:/opt/drupal/web/profiles ./profiles
+sudo docker cp kickstartdemo:/opt/drupal/web/themes ./themes
+sudo docker cp kickstartdemo:/opt/drupal/web/sites ./sites
+sudo docker cp kickstartdemo:/opt/drupal/private ./private
 sudo chown -R www-data:www-data modules profiles themes sites private
 ```
 6. Restart the combination with complete config
