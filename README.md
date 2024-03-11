@@ -1,5 +1,8 @@
 ### Run Drupal Commerce Kickstart 3 in a Docker container ###
 
+This guide assumes that your `localhost`'s ports 80 and 8080 are already taken by other apps running.
+Therefore, ports 81 and 8082 are used instead.
+
 1. create a project directory and copy the compose.yaml, install.yaml and Dockerfile into it
 ```
 mkdir testdrupal
@@ -14,7 +17,7 @@ sudo docker build -t demo_commerce_kickstart_3 .
 ```
 sudo docker compose -f install.yaml up -d
 ```
-4. navigate to `localhost:81` and run the installer
+4. navigate to `localhost:81` and run the installer.
 Check the MariaDb option. When asked about the database name, user and password, enter `drupal` everywhere. Also, under `Advanced`, replace the default `localhost` with `mariadbdemo`.
 
 5. Back to the terminal, copy container folders of interest on local filesystem
