@@ -8,6 +8,7 @@ RUN set -eux; \
 	fi; \
 	apt-get update; \
 	apt-get install git -y; \
+	apt-get install nano -y; \
 	savedAptMark="$(apt-mark showmanual)"; \
 	\
 	apt-get install -y --no-install-recommends \
@@ -62,19 +63,23 @@ COPY --from=composer /usr/bin/composer /usr/local/bin/
 
 # https://www.drupal.org/node/3060/release
 
-WORKDIR /opt/drupal
 RUN set -eux; \
+	chown www-data:www-data /opt; \
 	cd /opt; \
-	rm -rf *; \
+	rm -rf *
+USER www-data:www-data
+RUN	cd /opt; \
 	export COMPOSER_HOME="$(mktemp -d)"; \
 	composer create-project -s dev centarro/commerce-kickstart-project drupal; \
-	chown www-data:www-data drupal; \
 	cd drupal; \
-	chown -R www-data:www-data web/sites web/modules web/themes; \
-	rmdir /var/www/html; \
+	composer require drupal/commerce_demo:^3.0; \
+	composer require drupal/jsonapi_resources ;\
+	composer require drupal/jsonapi_menu_items;\
+	composer require drupal/jsonapi_extras;\
+	composer require drupal/jsonapi_hypermedia
+USER root
+RUN	rmdir /var/www/html; \
 	ln -sf /opt/drupal/web /var/www/html; \
-	# delete composer cache
 	rm -rf "$COMPOSER_HOME"
-
-ENV PATH=${PATH}:/opt/drupal/vendor/bin
-
+WORKDIR /opt/drupal
+ENV PATH=${PATH}:/opt/drupal/bin:/opt/drupal/vendor/bin
