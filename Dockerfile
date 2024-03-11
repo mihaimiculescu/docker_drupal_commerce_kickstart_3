@@ -78,4 +78,4 @@ RUN	rmdir /var/www/html; \
 	ln -sf /opt/drupal/web /var/www/html; \
 	rm -rf "$COMPOSER_HOME"
 WORKDIR /opt/drupal
-ENV PATH=${PATH}:/opt/drupal/bin:/opt/drupal/vendor/bin
+ENV PATH=${PATH}:/opt/drupal/bin:/opt/drupal/vendor
