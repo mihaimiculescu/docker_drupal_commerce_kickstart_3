@@ -6,10 +6,8 @@ services:
     restart: always
     networks:
       - back_demo 
-#    ports:
-#      - "3307:3306"
-    # volumes:
-    #   - ./db:/var/lib/mysql
+    volumes:
+      - ./db:/var/lib/mysql
     environment:
       MARIADB_ROOT_PASSWORD: mysmartrootpassword
       MARIADB_DATABASE: drupal
