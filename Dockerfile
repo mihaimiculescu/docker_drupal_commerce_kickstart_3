@@ -72,11 +72,7 @@ RUN	cd /opt; \
 	export COMPOSER_HOME="$(mktemp -d)"; \
 	composer create-project -s dev centarro/commerce-kickstart-project drupal; \
 	cd drupal; \
-	composer require drupal/commerce_demo:^3.0; \
-	composer require drupal/jsonapi_resources ;\
-	composer require drupal/jsonapi_menu_items;\
-	composer require drupal/jsonapi_extras;\
-	composer require drupal/jsonapi_hypermedia
+	composer require drupal/commerce_demo:^3.0
 USER root
 RUN	rmdir /var/www/html; \
 	ln -sf /opt/drupal/web /var/www/html; \
