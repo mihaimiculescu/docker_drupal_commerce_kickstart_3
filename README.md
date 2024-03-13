@@ -15,12 +15,11 @@ sudo docker build -t demo_commerce_kickstart_3 .
 ```
 3. start up the containers
 ```
-sudo docker compose -f install.yaml up -d
-```
+sudo docker compose -f install.yaml up -do```
 4. navigate to `localhost:81` and run the installer.
 Check the MariaDb option. When asked about the database name, user and password, enter `drupal` everywhere. Also, under `Advanced`, replace the default `localhost` with `mariadbdemo`.
 
-4.1 Later on during the installation process, make sure tu check the option to install the complete store demo, by checking the box when presented.
+4.1. Later on during the installation process, make sure tu check the box for the option to install the complete store demo, when presented.
 
 6. Back to the terminal, copy container folders of interest on local filesystem
 ```
