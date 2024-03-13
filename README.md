@@ -19,6 +19,7 @@ sudo docker compose -f install.yaml up -d
 ```
 4. navigate to `localhost:81` and run the installer.
 Check the MariaDb option. When asked about the database name, user and password, enter `drupal` everywhere. Also, under `Advanced`, replace the default `localhost` with `mariadbdemo`.
+
 4.1 Later on during the installation process, make sure tu check the option to install the complete store demo, by checking the box when presented.
 
 6. Back to the terminal, copy container folders of interest on local filesystem
