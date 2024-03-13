@@ -19,8 +19,9 @@ sudo docker compose -f install.yaml up -d
 ```
 4. navigate to `localhost:81` and run the installer.
 Check the MariaDb option. When asked about the database name, user and password, enter `drupal` everywhere. Also, under `Advanced`, replace the default `localhost` with `mariadbdemo`.
+4.1 Later on during the installation process, make sure tu check the option to install the complete store demo, by checking the box when presented.
 
-5. Back to the terminal, copy container folders of interest on local filesystem
+6. Back to the terminal, copy container folders of interest on local filesystem
 ```
 sudo docker cp kickstartdemo:/opt/drupal/web/modules ./modules
 sudo docker cp kickstartdemo:/opt/drupal/web/profiles ./profiles
@@ -36,7 +37,7 @@ sudo docker compose up -d
 ```
 #### Usage ####
 
-- To run drush or composer commands:
+- To run `drush` or `composer` commands:
 
 First, you need to get inside the Drupal container. Run `sudo docker exec - ti kickstartdemo bash`
 Once inside the container, you can run drush and composer commands. You don't need to prefix anything with `sudo` anymore.
