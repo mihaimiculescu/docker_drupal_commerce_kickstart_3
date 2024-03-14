@@ -2,6 +2,7 @@ services:
 
   db:
     image: mariadb
+    container_name: mariadbdemo
     restart: always
     networks:
       - back_demo 
@@ -15,31 +16,32 @@ services:
 
   phpmyadmin:
     image: phpmyadmin
+    container_name: phpmyadmindemo
     networks:
       - back_demo
     restart: always
     ports:
-      - "8080:80"
+      - "8082:80"
     depends_on:
       - db
 
   drupal:
-    image: mihaimiculescu/drupal_commerce_kickstart_3
+    container_name: kickstartdemo
+    image: demo_commerce_kickstart_3
     networks:
       - front_demo
       - back_demo
-    restart: always
     ports:
       - "80:80"
     depends_on:
       - db
+    restart: always
     volumes:
       - ./modules:/opt/drupal/web/modules
       - ./profiles:/opt/drupal/web/profiles
       - ./themes:/opt/drupal/web/themes
       - ./sites:/opt/drupal/web/sites
       - ./private:/opt/drupal/private
-    restart: always
 
 volumes:
   db:
